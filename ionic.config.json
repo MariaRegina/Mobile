@@ -1,0 +1,7 @@
+{
+  "name": "mobile-puc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

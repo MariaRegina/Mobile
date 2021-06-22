@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon [routerLink]="['/autenticacao/login']" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-padding" style="margin-top: 5%">
+    <ion-col class="ion-padding" style="margin-top: 5%">
+      <ion-img src="assets/imagens/logo.png"></ion-img>
+      <br>
+      <br>
+      <p style="text-align: center;">Esqueceu sua senha?</p>
+      <ion-item>
+        <ion-input placeholder="endereço de email"></ion-input>
+      </ion-item>
+      <br>
+      <br>
+      <ion-button expand="full" (click)="recuperarSenha()">Recuperar Senha</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
