@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { FolderPageRoutingModule } from './folder-routing.module';
 
@@ -9,6 +9,7 @@ import { EmbarcadoComponent } from './embarcado/embarcado.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 
 import { MenuComponent } from './menu/menu.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { MenuComponent } from './menu/menu.component';
     CommonModule,
     FolderPageRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    IonicModule
     //MenuComponent
   ],
   exports:[

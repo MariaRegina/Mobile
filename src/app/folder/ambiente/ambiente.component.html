@@ -1,5 +1,54 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Ambiente</ion-title>
+    <ion-row>
+      <ion-icon *ngIf="detalharAmbiente" (click)="habilitaLista()" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
+      <ion-icon *ngIf="!detalharAmbiente" [routerLink]="['/folder/pessoa']" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
+      <ion-title>Ambiente</ion-title>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ion-row class="ion-padding" style="margin-top: 5%">
+    <ion-col class="ion-padding" style="margin-top: 5%">
+      <div *ngIf="ambiente && ambiente.length && !detalharAmbiente">
+        <div class="row" *ngFor="let ambiente of ambientes; let i = index">
+          <div (click)="detalhaAmbiente(ambiente)">
+              {{ambiente.descricaoAmbiente}}
+          </div>
+        </div>
+      </div>
+      <div>
+        <form [formGroup]="form" *ngIf="detalharAmbiente" (ngSubmit)="salvar()">
+          <ion-item>
+            <ion-label>Descrição:</ion-label>
+            <ion-input type="text" ng-init ng-model="ambienteSelecionado.tipoAmbiente"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>ip Ambiente:</ion-label>
+            <ion-input type="text"  ng-init  ng-model="ambienteSelecionado.nomeAmbiente"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>ip Gateway:</ion-label>
+            <ion-input type="text" ng-model="ambienteSelecionado.descricao"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>MAC:</ion-label>
+            <ion-input readonly type="text" ng-model="ambienteSelecionado.capacidade"></ion-input>
+          </ion-item>
+          <br>
+          <ion-row>
+            <ion-col size="7">
+            <ion-button type="submit" expand="full" expand="block">
+              Salvar alterações</ion-button>
+            </ion-col>
+            <ion-col size="5">
+              <ion-button expand="full" color="danger">
+                Deletar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

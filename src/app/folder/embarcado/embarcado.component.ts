@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Embarcado } from 'src/app/models/embarcado.model';
 import { EmbarcadoService } from './embarcado.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+// import { FormBuilder, FormGroup } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -10,20 +10,20 @@ import { AlertController } from '@ionic/angular';
 })
 
 export class EmbarcadoComponent implements OnInit {
-  public form: FormGroup;
+  // public form: FormGroup;
   embarcados ?: Embarcado[];
   embarcadoSelecionado ?: Embarcado;
   currentIndex = -1;
   detalharEmbarcado = false;
 
   constructor(private embarcadoService: EmbarcadoService, 
-    private formBuilder: FormBuilder,
+    // private formBuilder: FormBuilder,
     public alertController: AlertController) { }
   ngOnInit() {
     this.habilitaLista();
-    this.form = this.formBuilder.group({
-      embarcadoSelecionado: {},
-    });
+    // this.form = this.formBuilder.group({
+    //   embarcadoSelecionado: {},
+    // });
   }
   
   habilitaLista(): void{
@@ -40,10 +40,12 @@ export class EmbarcadoComponent implements OnInit {
   }
       
   detalhaEmbarcado(embarcado): void{
-    this.form.value.embarcadoSelecionado = embarcado;
+    // this.form.value.embarcadoSelecionado = embarcado;
     this.embarcadoSelecionado = embarcado;
     this.detalharEmbarcado = true;
+    
     console.log('vai');
+    console.log(this.embarcadoSelecionado)
   }
 
   salvar(): void {
