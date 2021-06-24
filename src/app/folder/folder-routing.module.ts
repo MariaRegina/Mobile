@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FolderModule } from './folder.module';
-
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { EmbarcadoComponent } from './embarcado/embarcado.component';
 import { AmbienteComponent } from './ambiente/ambiente.component';

@@ -8,25 +8,23 @@ import { AmbienteComponent } from './ambiente/ambiente.component';
 import { EmbarcadoComponent } from './embarcado/embarcado.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 
-import { MenuComponent } from './menu/menu.component';
 import { IonicModule } from '@ionic/angular';
+import { FolderPage } from './folder.page';
 
 @NgModule({
   declarations: [
     AmbienteComponent,
     EmbarcadoComponent,
     PessoaComponent,
-    MenuComponent
+    FolderPage
   ],
   imports: [
     CommonModule,
     FolderPageRoutingModule,
     FormsModule,
     IonicModule
-    //MenuComponent
   ],
   exports:[
-    //MenuComponent
   ]
 })
 export class FolderModule { }

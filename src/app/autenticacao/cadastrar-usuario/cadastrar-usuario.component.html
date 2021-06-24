@@ -1,16 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-icon [routerLink]="['/autenticacao/login']" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
+    <ion-row>
+      <ion-icon [routerLink]="['/autenticacao/login']" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
+      <ion-title>Faça seu cadastro</ion-title>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-img src="assets/imagens/logo.png" style="margin: auto;"></ion-img>
+  <ion-img style="height: 150px;" src="assets/imagens/logo.png"></ion-img>
   <ion-row class="ion-padding" style="margin-top: 5%">
     <ion-col class="ion-padding" style="margin-top: 5%">
-      <br>
-      <br>
-      <p style="text-align: center;">Cadastro de usuário</p>
-      
       <ion-item>
         <ion-label position="floating">Nome</ion-label>
         <ion-input></ion-input>
