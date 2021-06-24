@@ -3,7 +3,6 @@ import { Ambiente } from 'src/app/models/ambiente.model';
 
 import { AlertController } from '@ionic/angular';
 import { AmbienteService } from './ambiente.service';
-import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({

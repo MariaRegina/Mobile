@@ -12,7 +12,7 @@
       <div *ngIf="embarcados && embarcados.length && !detalharEmbarcado">
         <div class="row" *ngFor="let embarcado of embarcados; let i = index">
           <div (click)="detalhaEmbarcado(embarcado)">
-              {{embarcado.descricaoEmbarcado}}
+              {{embarcado.descricao}}
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
         <form [formGroup]="form" *ngIf="detalharEmbarcado" (ngSubmit)="salvar()">
           <ion-item>
             <ion-label>Descrição:</ion-label>
-            <ion-input type="text" ng-init ng-model="{{embarcadoSelecionado.descricaoEmbarcado}}"></ion-input>
+            <ion-input type="text" ng-init ng-model="{{embarcadoSelecionado.descricao}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>ip Embarcado:</ion-label>
@@ -67,11 +67,12 @@
     <ion-content>
       <ion-list >
         <ion-list-header>
-          <ion-title>Opções</ion-title>
+          <ion-title>Menu</ion-title>
         </ion-list-header>
         <ion-menu-toggle>
           <ion-item [routerLink]="['/folder/pessoa']">
-            <ion-label>Perfil</ion-label>
+            <ion-icon name="person-outline"></ion-icon>
+            <ion-label>&nbsp;&nbsp;Perfil</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
@@ -87,13 +88,12 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item [routerLink]="['/folder/embarcado']">
+          <ion-item [routerLink]="['/autenticacao/login']">
             <ion-icon name="log-out-outline"></ion-icon>
             <ion-label>&nbsp;&nbsp;Log-out</ion-label>
           </ion-item>
         </ion-menu-toggle>
       </ion-list>
-  
     </ion-content>
   </ion-menu>
 </ion-content>
