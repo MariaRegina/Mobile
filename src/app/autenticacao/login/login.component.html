@@ -15,12 +15,12 @@
         </ion-item>
         <br>
         <br>
-        <ion-button expand="full" type="submit" expand="block">Entrar</ion-button>
+        <ion-button expand="full" [routerLink]="['/folder/ambiente']" expand="block">
+          <ion-icon name="log-in"></ion-icon>&nbsp;&nbsp;Entrar</ion-button>
         <br>
-        <ion-button (click)="loginGoogle()" expand="full" color="danger" class="ion-social-google">
+        <ion-button expand="full" color="danger" class="ion-social-google">
           <ion-icon name="logo-google"></ion-icon> &nbsp;&nbsp;Continuar com o Google
         </ion-button>
-        <ion-item></ion-item>
         <br>
         <br>
         <p style="text-align: center;">É novo aqui?&nbsp;&nbsp;<a [routerLink]="['/autenticacao/cadastrar-usuario']">Faça o cadastro!</a></p>

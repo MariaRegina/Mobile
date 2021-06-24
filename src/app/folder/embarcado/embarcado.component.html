@@ -1,3 +1,66 @@
-<p>
-  embarcado works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row>
+      <ion-icon *ngIf="detalharEmbarcado" (click)="habilitaLista()" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
+      <ion-icon *ngIf="!detalharEmbarcado" [routerLink]="['/folder/pessoa']" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
+      <ion-title>Embarcados</ion-title>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-padding" style="margin-top: 5%">
+    <ion-col class="ion-padding" style="margin-top: 5%">
+      <div *ngIf="embarcados && embarcados.length && !detalharEmbarcado">
+        <div class="row" *ngFor="let embarcado of embarcados; let i = index">
+          <div (click)="detalhaEmbarcado(embarcado)">
+              {{embarcado.descricaoEmbarcado}}
+          </div>
+        </div>
+      </div>
+      <div>
+        <form [formGroup]="form" *ngIf="detalharEmbarcado" (ngSubmit)="salvar()">
+          <ion-item>
+            <ion-label>Descrição:</ion-label>
+            <ion-input type="text" ng-init ng-model="{{embarcadoSelecionado.descricaoEmbarcado}}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>ip Embarcado:</ion-label>
+            <ion-input type="text"  ng-init  ng-model="embarcadoSelecionado.ipEmbarcado"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>ip Gateway:</ion-label>
+            <ion-input type="text" ng-model="embarcadoSelecionado.ipGateway"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>MAC:</ion-label>
+            <ion-input readonly type="text" ng-model="embarcadoSelecionado.mac"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Máscara:</ion-label>
+            <ion-input type="text" ng-model="embarcadoSelecionado.mascara"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Status:</ion-label>
+            <ion-input type="text" ng-model="embarcadoSelecionado.status"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Tipo de Rede:</ion-label>
+            <ion-input type="text" ng-model="embarcadoSelecionado.tipoRede"></ion-input>
+          </ion-item>
+          <br>
+          <ion-row>
+            <ion-col size="7">
+            <ion-button type="submit" expand="full" expand="block">
+              Salvar alterações</ion-button>
+            </ion-col>
+            <ion-col size="5">
+              <ion-button expand="full" color="danger">
+                Deletar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
