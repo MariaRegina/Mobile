@@ -3,6 +3,8 @@ import { Ambiente } from 'src/app/models/ambiente.model';
 
 import { AlertController } from '@ionic/angular';
 import { AmbienteService } from './ambiente.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ambiente',
@@ -16,7 +18,8 @@ export class AmbienteComponent implements OnInit {
   detalharAmbiente = false;
 
   constructor(private ambienteService: AmbienteService, 
-    public alertController: AlertController) { }
+    public alertController: AlertController,
+    private router: Router) { }
     ngOnInit() {
       this.habilitaLista();
     }
@@ -71,6 +74,10 @@ export class AmbienteComponent implements OnInit {
       });
 
       await alert.present();
+    }
+
+    abrirmenu(): void{
+      this.router.navigate([`/folder/embarcado`]);
     }
 
 }

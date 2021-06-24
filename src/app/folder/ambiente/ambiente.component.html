@@ -1,7 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-row>
-      <ion-icon name="menu-outline"></ion-icon>
       <ion-title>Ambientes</ion-title>
       <ion-icon *ngIf="detalharAmbiente" (click)="habilitaLista()" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
       <ion-icon *ngIf="!detalharAmbiente" [routerLink]="['/folder/pessoa']" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
@@ -60,25 +59,35 @@
       </div>
     </ion-col>
   </ion-row>
+  <ion-menu contentId="main-content" type="overlay">
+    <ion-content>
+      <ion-list >
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/pessoa']">
+            <ion-label>Perfil</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-list-header>
+          <ion-title>Opções</ion-title>
+        </ion-list-header>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/ambiente']">
+            <ion-label>Ambiente</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/embarcado']">
+            <ion-label>Embarcado</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/embarcado']">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <ion-label>&nbsp;&nbsp;Log-out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+  
+    </ion-content>
+  </ion-menu>
 </ion-content>
-
-<ion-menu contentId="main-content" type="overlay">
-  <ion-content>
-    <ion-list id="inbox-list">
-      <ion-list-header>
-        <ion-title>Opções</ion-title>
-      </ion-list-header>
-      <ion-menu-toggle>
-        <ion-item [routerLink]="['/folder/ambiente']">
-          <ion-label>Ambiente</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-      <ion-menu-toggle>
-        <ion-item [routerLink]="['/folder/embarcado']">
-          <ion-label>Embarcado</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-
-  </ion-content>
-</ion-menu>

@@ -62,4 +62,38 @@
       </div>
     </ion-col>
   </ion-row>
+  
+  <ion-menu contentId="main-content" type="overlay">
+    <ion-content>
+      <ion-list >
+        <ion-list-header>
+          <ion-title>Opções</ion-title>
+        </ion-list-header>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/pessoa']">
+            <ion-label>Perfil</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/ambiente']">
+            <ion-icon name="sparkles-outline"></ion-icon>
+            <ion-label>&nbsp;&nbsp;Ambiente</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/embarcado']">
+            <ion-icon name="telescope-outline"></ion-icon>
+            <ion-label>&nbsp;&nbsp;Embarcado</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/folder/embarcado']">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <ion-label>&nbsp;&nbsp;Log-out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+  
+    </ion-content>
+  </ion-menu>
 </ion-content>
