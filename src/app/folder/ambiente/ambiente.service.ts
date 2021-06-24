@@ -25,8 +25,8 @@ export class AmbienteService {
     return this.http.post(baseUrl, data);
   }
 
-  update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+  update(data: any): Observable<any> {
+    return this.http.put(baseUrl, data);
   }
 
   delete(id: any): Observable<any> {

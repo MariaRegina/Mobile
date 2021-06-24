@@ -49,6 +49,24 @@ export class EmbarcadoComponent implements OnInit {
   }
 
   salvar(): void {
+    this.embarcadoService.update(this.embarcadoSelecionado).subscribe(() => {
+      alert("Alterado com sucesso");
+    },
+    error => {
+      alert("Erro ao alterar embarcado");
+    }
+    )
+    console.log('teste');
+  }
+
+  deletar(): void {
+    this.embarcadoService.delete(this.embarcadoSelecionado.id).subscribe(() => {
+      alert("Removido com sucesso");
+    },
+    error => {
+      alert("Não foi possivel remover.");
+    }
+    )
     console.log('teste');
   }
 

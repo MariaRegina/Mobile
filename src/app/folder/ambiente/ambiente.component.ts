@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Ambiente } from 'src/app/models/ambiente.model';
-import { AmbienteService } from './ambiente.service';
+
 import { AlertController } from '@ionic/angular';
+import { AmbienteService } from './ambiente.service';
 
 @Component({
   selector: 'app-ambiente',
@@ -42,6 +43,22 @@ export class AmbienteComponent implements OnInit {
     }
 
     salvar(): void {
+      this.ambienteService.update(this.ambienteSelecionado).subscribe(() => {
+        alert("funcionou");
+      },
+      error => {
+        alert("não funcionou");
+      })
+      console.log('teste');
+    }
+    deletar(): void {
+      this.ambienteService.delete(this.ambienteSelecionado.id).subscribe(() => {
+        alert("Removido com sucesso");
+      },
+      error => {
+        alert("Não foi possivel remover.");
+      }
+      )
       console.log('teste');
     }
 
