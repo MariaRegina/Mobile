@@ -3,51 +3,59 @@
     <ion-row>
       <ion-icon *ngIf="detalharAmbiente" (click)="habilitaLista()" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
       <ion-icon *ngIf="!detalharAmbiente" [routerLink]="['/folder/pessoa']" name="arrow-back" style="margin-left: 5%; width: 30px; height: 30px;"></ion-icon>
-      <ion-title>Ambiente</ion-title>
+      <ion-title>Ambientes</ion-title>
     </ion-row>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-row class="ion-padding" style="margin-top: 5%">
     <ion-col class="ion-padding" style="margin-top: 5%">
-      <div *ngIf="ambiente && ambiente.length && !detalharAmbiente">
-        <div class="row" *ngFor="let ambiente of ambientes; let i = index">
-          <div (click)="detalhaAmbiente(ambiente)">
-              {{ambiente.descricaoAmbiente}}
-          </div>
-        </div>
-      </div>
-      <div>
-        <form [formGroup]="form" *ngIf="detalharAmbiente" (ngSubmit)="salvar()">
-          <ion-item>
-            <ion-label>Descrição:</ion-label>
-            <ion-input type="text" ng-init ng-model="ambienteSelecionado.tipoAmbiente"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>ip Ambiente:</ion-label>
-            <ion-input type="text"  ng-init  ng-model="ambienteSelecionado.nomeAmbiente"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>ip Gateway:</ion-label>
-            <ion-input type="text" ng-model="ambienteSelecionado.descricao"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>MAC:</ion-label>
-            <ion-input readonly type="text" ng-model="ambienteSelecionado.capacidade"></ion-input>
-          </ion-item>
-          <br>
+      <div *ngIf="ambientes && ambientes.length && !detalharAmbiente">
+        <ion-grid class="ion-margin">
           <ion-row>
-            <ion-col size="7">
-            <ion-button type="submit" expand="full" expand="block">
-              Salvar alterações</ion-button>
+            <ion-col size="8">Tipo de Ambiente</ion-col>
+            <ion-col size="4">Nome</ion-col>
+          </ion-row>
+          <br>
+          <ion-row class="ion-align-items-start" *ngFor="let ambiente of ambientes; let i = index">
+            <ion-col size="8" (click)="detalhaAmbiente(ambiente)">
+                {{ambiente.tipoAmbiente}}
             </ion-col>
-            <ion-col size="5">
-              <ion-button expand="full" color="danger">
-                Deletar
-              </ion-button>
+            <ion-col size="4" (click)="detalhaAmbiente(ambiente)">
+              {{ambiente.nomeAmbiente}}
             </ion-col>
           </ion-row>
-        </form>
+        </ion-grid>
+      </div>
+      <div *ngIf="detalharAmbiente">
+        <ion-item>
+          <ion-label>Tipo de Ambiente:</ion-label>
+          <ion-input type="text" [(ngModel)]="ambienteSelecionado.tipoAmbiente"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nome:</ion-label>
+          <ion-input type="text" [(ngModel)]="ambienteSelecionado.nomeAmbiente"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Descricao:</ion-label>
+          <ion-input type="text" [(ngModel)]="ambienteSelecionado.descricao"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Capacidade:</ion-label>
+          <ion-input  type="text" [(ngModel)]="ambienteSelecionado.capacidade"></ion-input>
+        </ion-item>
+        <br>
+        <ion-row>
+          <ion-col size="7">
+          <ion-button expand="full" expand="block">
+            Salvar alterações</ion-button>
+          </ion-col>
+          <ion-col size="5">
+            <ion-button expand="full" color="danger">
+              Deletar
+            </ion-button>
+          </ion-col>
+        </ion-row>
       </div>
     </ion-col>
   </ion-row>
